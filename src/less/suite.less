@@ -1,0 +1,36 @@
+@import "/bower_components/bootstrap/less/normalize";
+
+@import "healper/sprite";
+@import "healper/libs";
+@import "healper/fonts";
+
+@import "suite/header";
+
+//не удалять
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.old-browser {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: #ffffff;
+  &-text {
+    // Base style
+    font-family: "Open Sans";
+    font-weight: 700;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    padding: 0px 40px;
+  }
+}
+
+body {
+  font-family: "Open Sans";
+}

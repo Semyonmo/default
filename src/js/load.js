@@ -1,3 +1,4 @@
-console.log('lol');
-console.log('lol');
-console.log('lol');
+$( document ).ready(function() {
+    //код сюда
+    console.log( "document loaded" );
+});

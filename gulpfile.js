@@ -15,17 +15,19 @@ var lessSrc = './src/less/*.less',
     lessDst = './src/css',
     lessSrcWatch = './src/less/**/*.less',
     cssSrc = './src/css/**/*.css',
-    cssDst = './dist/css',
+    cssDst = './app/css',
     jsSrc = './src/js/**/*.js',
-    jsDst = './dist/js',
+    jsDst = './app/js',
     htmlSrc = './src/*.html',
-    htmlDst = './',
+    htmlDst = './app',
     imgSrc = './src/img/**/*',
-    imgDst = './dist/img';
+    imgDst = './app/img';
 
 //JS билиоткеи
 var bower_scripts = [
-    './bower_components/jquery/dist/jquery.js'
+    './bower_components/jquery/dist/jquery.js',
+    './bower_components/respond/dest/respond.min.js',
+    './bower_components/html5shiv/dist/html5shiv.min.js'
 ];
 
 //Стили для JS библиотек
@@ -53,7 +55,7 @@ gulp.task('css_production', function () {
     gulp.src(lessSrc)
         .pipe(less())
         .pipe(autoprefix(['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4']))
-        .pipe(concat('style.css'))
+        .pipe(concat('suite.css'))
         .pipe(gulp.dest(cssDst))
         .pipe(rename({suffix: '.min'}))
         .pipe(minifyCSS())
@@ -63,7 +65,7 @@ gulp.task('css_production', function () {
 gulp.task('css_development', function () {
     //сбока всех стилей и минимизация
     gulp.src(cssSrc)
-        .pipe(concat('style.css'))
+        .pipe(concat('suite.css'))
         .pipe(gulp.dest(cssDst))
 });
 
@@ -103,7 +105,7 @@ gulp.task('server', function () {
     var express = require('express');
     var app = express();
     app.use(require('connect-livereload')({port: 4002}));
-    app.use(express.static(__dirname));
+    app.use(express.static(__dirname + '/app'));
     app.listen(4000);
 });
 
@@ -112,7 +114,7 @@ gulp.task('watch', function () {
     gulp.watch([htmlSrc], ['html']);
     gulp.watch([imgSrc], ['img']);
     gulp.watch([cssSrc], ['css_development']);
-    gulp.watch(['./dist/**/*.*', './*.html'], notifyLiveReload);
+    gulp.watch(['./app/**/*.*', './*.html'], notifyLiveReload);
 });
 
 gulp.task('default', ['css_production', 'js', 'img', 'html']);

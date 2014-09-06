@@ -1,7 +1,7 @@
 {
   "name": "default",
-  "version": "0.1.0",
-  "description": "default ======= my default project gulp usage now functions: 1.Server + livereload 2.Less compiler 3.JS suite + libs compiler 4.All production files concat and minified;",
+  "version": "0.2.0",
+  "description": "default ======= my default project gulp usage now functions: 1.Server + livereload 2.Less compiler 3.JS suite + libs compiler 4.All production files concat and minified in app folder;",
   "main": "gulpfile.js",
   "dependencies": {
     "connect-livereload": "^0.4.0",
