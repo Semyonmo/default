@@ -1,4 +1,9 @@
-export class Menu {
+module.exports =  function(selector) {
+    "use strict";
+    return new Menu(selector);
+};
+
+class Menu {
     constructor(selector) {
         "use strict";
         this.$element =  $(selector);

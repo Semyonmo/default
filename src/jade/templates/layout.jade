@@ -16,10 +16,11 @@ body(ng-app="app")
 			.column
 				h1 Header
 
-	section.works
+	section.works(ng-controller="WorksCtrl as works")
 		.ui.page.grid
 			.column
-				h1 Header
+				h1 {{works.title}}
+				a(ng-click="works.goToWork()") go to this work
 
 	script(src="/bower_components/jquery/dist/jquery.min.js")
 	script(src="/bower_components/semantic/dist/semantic.min.js")
