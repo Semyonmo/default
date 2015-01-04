@@ -9,7 +9,7 @@
 var browserify = require('browserify');
 var watchify = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
-var es6ify = require('es6ify');
+//var es6ify = require('es6ify');
 //var uglify = require('gulp-uglify');
 var gulp = require('gulp');
 //var streamify = require('gulp-streamify');
@@ -28,14 +28,13 @@ gulp.task('browserify', function (callback) {
             cache: {}, packageCache: {},
             //// Specify the entry point of your app
             entries: [
-                es6ify.runtime,
                 bundleConfig.entries
             ],
             //// Add file extentions to make optional in your requires
             //extensions: config.extensions,
             //// Enable source maps!
             debug: config.debug
-        }).transform(es6ify);
+        });
 
         var bundle = function () {
             // Log when bundling starts

@@ -3,8 +3,8 @@ html(lang="en")
 	meta(charset="UTF-8")
 	meta(name="viewport" content="width=device-width, initial-scale=1")
 	title DEVELOPMENT TITLE
-	link(rel="stylesheet", href="/css/style.css")
 	link(rel="stylesheet", href="/bower_components/semantic/dist/semantic.min.css")
+	link(rel="stylesheet", href="/css/style.css")
 body(ng-app="app")
 	nav.menu
 		.ui.inverted.teal.vertical.segment
@@ -16,15 +16,19 @@ body(ng-app="app")
 			.column
 				h1 Header
 
-	section.works(ng-controller="WorksCtrl as works")
-		.ui.page.grid
-			.column
-				h1 {{works.title}}
-				a(ng-click="works.goToWork()") go to this work
+	//section.works(ng-controller="WorksController as works")
+	//	.ui.page.grid
+	//		.column(ng-repeat="item in works.works")
+	//			a {{item.title}}
+
+	//section.content
+	//	.ui.page.grid
+	//		.column
+	//			div(ng-view)
 
 	script(src="/bower_components/jquery/dist/jquery.min.js")
 	script(src="/bower_components/semantic/dist/semantic.min.js")
-	script(src="/bower_components/angular/angular.js")
+	script(src="/bower_components/angular/angular.min.js")
+	script(src="/bower_components/angular-route/angular-route.min.js")
 	script(src="/bower_components/firebase/firebase.js")
-	script(src="/bower_components/angularfire/dist/angularfire.js")
 	script(src="/js/app.js")

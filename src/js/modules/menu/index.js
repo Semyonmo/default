@@ -1,32 +1,31 @@
-module.exports =  function(selector) {
+module.exports = function (selector) {
     "use strict";
     return new Menu(selector);
 };
 
-class Menu {
-    constructor(selector) {
-        "use strict";
-        this.$element =  $(selector);
-        this.init();
-    }
+function Menu(selector) {
+    "use strict";
+    var that = this;
+    that.$element = $(selector);
+    init();
 
-    reduce() {
+    that.reduce = function () {
         "use strict";
-        this.$element.addClass('small');
-    }
+        that.$element.addClass('small');
+    };
 
-    increase() {
-        "use strict";
-        this.$element.removeClass('small');
-    }
+    that.increase = function () {
 
-    init() {
-        var that = this;
         "use strict";
-        $(window).scroll(function() {
+        that.$element.removeClass('small');
+    };
+
+    function init() {
+        "use strict";
+        $(window).scroll(function () {
             "use strict";
 
-            if($(window).scrollTop() > 0)
+            if ($(window).scrollTop() > 0)
                 that.reduce();
             else
                 that.increase();

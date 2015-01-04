@@ -6,16 +6,37 @@ if (!angular) {
     throw new Error('AngularJS not load');
 }
 
+/**
+ * Load angular modules
+ * @type {exports}
+ */
+var works = require('./modules/works');
 
-var works = require('./modules/works'),
-    menu = require('./modules/menu');
+/**
+ * Load angular app config modules
+ * @type {exports}
+ */
+var appRoutes =  require('./app.routes'),
+    appConfig =  require('./app.config');
+
+/**
+ * Load menu
+ * @type {function(): Menu|exports}
+ */
+var menu = require('./modules/menu');
 
 
-angular.module('app', [
-    'firebase',
-    works.name
-]);
-
+/**
+ * Init AgngulrJS App
+ */
+angular
+    .module('app', [
+        //'firebase',
+        'ngRoute',
+        works.name,
+        appConfig.name,
+        appRoutes.name
+    ]);
 
 //imported from ./modules/menu
 //init menu
