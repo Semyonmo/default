@@ -2,33 +2,28 @@
 html(lang="en")
 	meta(charset="UTF-8")
 	meta(name="viewport" content="width=device-width, initial-scale=1")
-	title DEVELOPMENT TITLE
-	link(rel="stylesheet", href="/bower_components/semantic/dist/semantic.min.css")
+	block title
+		title DEVELOPMENT TITLE
+
+	link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
 	link(rel="stylesheet", href="/css/style.css")
-body(ng-app="app")
-	nav.menu
-		.ui.inverted.teal.vertical.segment
-			.ui.grid
-				.column
+body
+	header.menu
+		.container
+			.row
+				.col-xs-12
+					each item in menu
+						.menu-item: a(href="#{item.href}") #{item.text}
 
-	section.header
-		.ui.page.grid
-			.column
-				h1 Header
+	content.content
+		block content
 
-	//section.works(ng-controller="WorksController as works")
-	//	.ui.page.grid
-	//		.column(ng-repeat="item in works.works")
-	//			a {{item.title}}
 
-	//section.content
-	//	.ui.page.grid
-	//		.column
-	//			div(ng-view)
+
+	footer.footer
+		.container
+			.row
+				.col-xs-12: p footer
 
 	script(src="/bower_components/jquery/dist/jquery.min.js")
-	script(src="/bower_components/semantic/dist/semantic.min.js")
-	script(src="/bower_components/angular/angular.min.js")
-	script(src="/bower_components/angular-route/angular-route.min.js")
-	script(src="/bower_components/firebase/firebase.js")
 	script(src="/js/app.js")

@@ -1,21 +1,20 @@
 {
-    "menu": [{
-        "text": "Главная",
-        "href": "#"
-    }, {
-        "text": "О Нас",
-        "href": "#"
-    }, {
-        "text": "Контакты",
-        "href": "#"
-    }, {
-        "text": "Портфолио",
-        "href": "#"
-    }],
-    "portfolio": [{
-        "title": "Название",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, libero.",
-        "img": "",
-        "href": "#"
-    }]
+  "menu": [
+    {
+      "text": "Главная",
+      "href": "#"
+    },
+    {
+      "text": "О Нас",
+      "href": "#"
+    },
+    {
+      "text": "Контакты",
+      "href": "#"
+    },
+    {
+      "text": "Портфолио",
+      "href": "#"
+    }
+  ]
 }

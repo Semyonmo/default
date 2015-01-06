@@ -12,7 +12,7 @@ gulp.task('less', ['images'], function () {
     .pipe(less(config.settings))
     .on('error', handleErrors)
     .pipe(sourcemaps.write())
-    .pipe(autoprefixer({ browsers: ['last 2 version'] }))
+    .pipe(autoprefixer({ browsers: ['last 3 version'] }))
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({stream:true}));
 });
