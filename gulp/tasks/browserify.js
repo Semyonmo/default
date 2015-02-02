@@ -9,7 +9,7 @@
 var browserify = require('browserify');
 var watchify = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
-//var es6ify = require('es6ify');
+var to5ify = require('6to5ify');
 //var uglify = require('gulp-uglify');
 var gulp = require('gulp');
 //var streamify = require('gulp-streamify');
@@ -34,7 +34,7 @@ gulp.task('browserify', function (callback) {
             //extensions: config.extensions,
             //// Enable source maps!
             debug: config.debug
-        });
+        }).transform(to5ify);
 
         var bundle = function () {
             // Log when bundling starts

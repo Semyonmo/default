@@ -6,7 +6,7 @@
   "author": "JSemyonom@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^1.8.2",
+    "browser-sync": "^2.0.0",
     "browserify": "^8.0.2",
     "es6ify": "^1.6.0",
     "gulp-autoprefixer": "^2.0.0",
