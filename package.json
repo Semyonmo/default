@@ -1,11 +1,12 @@
 {
   "name": "gulp-boilerplate",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "description": "gulp based boilerplate for development with superpower",
   "main": "gulpfile.js",
   "author": "JSemyonom@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "babelify": "^5.0.3",
     "browser-sync": "^2.0.0",
     "browserify": "^8.0.2",
     "es6ify": "^1.6.0",

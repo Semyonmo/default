@@ -9,10 +9,10 @@
 var browserify = require('browserify');
 var watchify = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
-var to5ify = require('6to5ify');
-//var uglify = require('gulp-uglify');
+var babelify = require("babelify");
+var uglify = require('gulp-uglify');
 var gulp = require('gulp');
-//var streamify = require('gulp-streamify');
+var streamify = require('gulp-streamify');
 var handleErrors = require('../util/handleErrors');
 var source = require('vinyl-source-stream');
 var config = require('../config').browserify;
@@ -34,7 +34,7 @@ gulp.task('browserify', function (callback) {
             //extensions: config.extensions,
             //// Enable source maps!
             debug: config.debug
-        }).transform(to5ify);
+        }).transform(babelify);
 
         var bundle = function () {
             // Log when bundling starts
@@ -49,7 +49,7 @@ gulp.task('browserify', function (callback) {
                 // desired output filename here.
                 .pipe(source(bundleConfig.outputName))
                 // Specify the output destination
-                //.pipe(streamify(uglify()))
+                .pipe(streamify(uglify()))
                 .pipe(gulp.dest(bundleConfig.dest))
                 .on('end', reportFinished)
         };
