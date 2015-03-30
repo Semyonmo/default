@@ -5,6 +5,8 @@ var sourcemaps   = require('gulp-sourcemaps');
 var handleErrors = require('../util/handleErrors');
 var config       = require('../config').less;
 var autoprefixer = require('gulp-autoprefixer');
+var csso         = require('gulp-csso');
+
 
 gulp.task('less', ['images'], function () {
   return gulp.src(config.src)
@@ -13,6 +15,7 @@ gulp.task('less', ['images'], function () {
     .on('error', handleErrors)
     .pipe(sourcemaps.write())
     .pipe(autoprefixer({ browsers: ['last 3 version'] }))
+    .pipe(csso())
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({stream:true}));
 });

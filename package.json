@@ -25,6 +25,7 @@
     "require-dir": "^0.3.0"
   },
   "devDependencies": {
+    "gulp-csso": "^1.0.0",
     "gulp-notify": "^2.2.0",
     "gulp-util": "^3.0.4",
     "gulp.spritesmith": "^3.4.0",
