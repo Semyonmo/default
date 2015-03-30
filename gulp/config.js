@@ -32,6 +32,20 @@ module.exports = {
     src: src + "/img/**",
     dest: dest + "/img"
   },
+  sprites: {
+    files: src + "/icons/**.*",
+    src: src + "/icons/**.*",
+    dest: {
+      img: dest + "/icons",
+      less: src + "/less/assets"
+    },
+    spritesmith : {
+      imgName: "sprites.png",
+      imgPath: "/icons/sprite.png",
+      cssName: "sprites.less",
+      cssFormat: "less"
+    }
+  },
   // markup: {
   //   src: src + "/htdocs/**",
   //   dest: dest

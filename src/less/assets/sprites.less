@@ -1,0 +1,117 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+@services-color-name: services-color;
+@services-color-x: 144px;
+@services-color-y: 0px;
+@services-color-offset-x: -144px;
+@services-color-offset-y: 0px;
+@services-color-width: 55px;
+@services-color-height: 75px;
+@services-color-total-width: 199px;
+@services-color-total-height: 142px;
+@services-color-image: '/icons/sprite.png';
+@services-color: 144px 0px -144px 0px 55px 75px 199px 142px '/icons/sprite.png' services-color;
+@services-lamp-name: services-lamp;
+@services-lamp-x: 75px;
+@services-lamp-y: 0px;
+@services-lamp-offset-x: -75px;
+@services-lamp-offset-y: 0px;
+@services-lamp-width: 69px;
+@services-lamp-height: 75px;
+@services-lamp-total-width: 199px;
+@services-lamp-total-height: 142px;
+@services-lamp-image: '/icons/sprite.png';
+@services-lamp: 75px 0px -75px 0px 69px 75px 199px 142px '/icons/sprite.png' services-lamp;
+@services-pen-name: services-pen;
+@services-pen-x: 0px;
+@services-pen-y: 0px;
+@services-pen-offset-x: 0px;
+@services-pen-offset-y: 0px;
+@services-pen-width: 75px;
+@services-pen-height: 75px;
+@services-pen-total-width: 199px;
+@services-pen-total-height: 142px;
+@services-pen-image: '/icons/sprite.png';
+@services-pen: 0px 0px 0px 0px 75px 75px 199px 142px '/icons/sprite.png' services-pen;
+@services-search-name: services-search;
+@services-search-x: 0px;
+@services-search-y: 75px;
+@services-search-offset-x: 0px;
+@services-search-offset-y: -75px;
+@services-search-width: 65px;
+@services-search-height: 67px;
+@services-search-total-width: 199px;
+@services-search-total-height: 142px;
+@services-search-image: '/icons/sprite.png';
+@services-search: 0px 75px 0px -75px 65px 67px 199px 142px '/icons/sprite.png' services-search;
+@spritesheet-width: 199px;
+@spritesheet-height: 142px;
+@spritesheet-image: '/icons/sprite.png';
+@spritesheet-sprites: @services-color @services-lamp @services-pen @services-search;
+@spritesheet: 199px 142px '/icons/sprite.png' @spritesheet-sprites;
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+.sprite-width(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: extract(@sprite, 9);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: extract(@sprite, 10);
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
+}
