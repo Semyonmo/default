@@ -1,0 +1,7 @@
+header.menu
+	.container
+		.row
+			.col-xs-12
+				each item in menu
+					.menu-item: a(href="#{item.href}") #{item.text}
+

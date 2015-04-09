@@ -11,6 +11,7 @@ var watchify = require('watchify');
 var bundleLogger = require('../util/bundleLogger');
 var babelify = require("babelify");
 var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var gulp = require('gulp');
 var streamify = require('gulp-streamify');
 var handleErrors = require('../util/handleErrors');
@@ -47,8 +48,12 @@ gulp.task('browserify', function (callback) {
                 // Use vinyl-source-stream to make the
                 // stream gulp compatible. Specifiy the
                 // desired output filename here.
-                .pipe(source(bundleConfig.outputName))
+
                 // Specify the output destination
+                .pipe(source(bundleConfig.outputName))
+                .pipe(gulp.dest(bundleConfig.dest))
+                ////MIN
+                .pipe(rename(bundleConfig.outputNameMin))
                 .pipe(streamify(uglify()))
                 .pipe(gulp.dest(bundleConfig.dest))
                 .on('end', reportFinished)

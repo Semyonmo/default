@@ -20,12 +20,12 @@ module.exports = {
       "!" + dest + "/**.map"
     ]
   },
-  less: {
-    src: src + "/less/*.less",
-    files: src + "/less/**/**",
+  sass: {
+    src: src + "/scss/*.scss",
+    files: src + "/scss/**/**",
     dest: dest + "/css",
-    plugins: [],
     settings: {
+      includePaths: require('node-bourbon').includePaths
     }
   },
   jade: {
@@ -66,7 +66,8 @@ module.exports = {
     bundleConfigs: [{
       entries: src + '/js/app.js',
       dest: dest + '/js',
-      outputName: 'app.js'
+      outputName: 'app.js',
+      outputNameMin: 'app.min.js'
     }]
   },
   assets: {
