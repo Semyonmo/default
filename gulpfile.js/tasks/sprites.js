@@ -7,6 +7,6 @@ gulp.task('sprites', function () {
     var spriteData = gulp.src(config.src)
         .pipe(spritesmith(config.spritesmith));
 
-    spriteData.img.pipe(gulp.dest(config.dest.img));
-    spriteData.css.pipe(gulp.dest(config.dest.less));
+    spriteData.img.pipe(gulp.dest(config.dest.icons));
+    spriteData.css.pipe(gulp.dest(config.dest.src));
 });
