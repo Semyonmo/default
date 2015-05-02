@@ -3,9 +3,9 @@ var path       = require('path');
 var gulp       = require('gulp');
 var fs         = require('fs');
 var handleErrors = require('../util/handleErrors');
-var config     = require('../config').jade;
+var config     = require('../config').view;
 
-gulp.task('jade', function() {
+gulp.task('view', function() {
   return gulp.src(config.src)
     .pipe(jade({
         pretty: true,

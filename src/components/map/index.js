@@ -1,4 +1,4 @@
-export class Menu {
+class Map {
     constructor() {
 
     }
