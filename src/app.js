@@ -1,6 +1,7 @@
 //Load components
-require("components/menu");
-require("components/map");
+import React from "react";
+import $ from "jquery";
 
-//require("./less/style.less");
-//require("./sass/style.scss");
+import Title from "components/title";
+
+React.render(<Title name="World"/>, $('#page')[0]);
