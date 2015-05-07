@@ -1,7 +1,9 @@
-header.menu
-	.container
-		.row
-			.col-xs-12
+.uk-grid
+	.uk-width-1-1
+		nav.uk-navbar
+			ul.uk-navbar-nav
 				each item in menu
-					.menu-item: a(href="#{item.href}") #{item.text}
+					li(class="#{item.active}")
+						a(href="#{item.href}") #{item.text}
+
 

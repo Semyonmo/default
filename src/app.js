@@ -1,7 +1,14 @@
-//Load components
-import React from "react";
-import $ from "jquery";
+import {$} from "jquery";
+import "angular";
 
-import Title from "components/title";
 
-React.render(<Title name="World"/>, $('#page')[0]);
+import dropdown from "application/components/dropdown";
+import AppController from "application/controller/app.controller"
+
+angular
+    .module('demoApp',
+    [
+        dropdown.name
+    ])
+    .controller('AppController', AppController);
+

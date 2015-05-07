@@ -2,19 +2,23 @@
   "menu": [
     {
       "text": "Главная",
-      "href": "#"
+      "href": "#",
+      "active": "uk-active"
     },
     {
       "text": "О Нас",
-      "href": "#"
+      "href": "#",
+      "active": null
     },
     {
       "text": "Контакты",
-      "href": "#"
+      "href": "#",
+      "active": null
     },
     {
       "text": "Портфолио",
-      "href": "#"
+      "href": "#",
+      "active": null
     }
   ]
 }

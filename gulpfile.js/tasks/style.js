@@ -7,9 +7,7 @@ var config = require('../config').style;
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var eventStream = require('event-stream');
-
-
-//var csso         = require('gulp-csso');
+//var csso = require('gulp-csso');
 
 gulp.task('style', ['images'], function () {
     var stream = {
@@ -19,7 +17,6 @@ gulp.task('style', ['images'], function () {
 
     return eventStream
         .merge(stream.scss, stream.less)
-        //.pipe(watch([config.src.less, config.src.scss]))
         .pipe(concat('style.css'))
         .pipe(autoprefixer({browsers: ['last 2 version']}))
         //.pipe(csso())
