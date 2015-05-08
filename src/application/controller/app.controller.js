@@ -1,10 +1,10 @@
 export default function AppController() {
     this.appName = "Dropdown demo";
 
-    this.curentCity = "";
-    this.curentCookie = "";
+    this.selectedCity = "";
+    this.selectedNumber = "";
 
-    this.city = [
+    this.cities = [
         {
             value: 'Paris',
             selected: false
@@ -19,7 +19,7 @@ export default function AppController() {
         }
     ];
 
-    this.cookie = [
+    this.number = [
         {
             value: 'One',
             selected: false

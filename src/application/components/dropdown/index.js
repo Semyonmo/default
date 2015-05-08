@@ -37,15 +37,15 @@ function dropdown() {
     return directive;
 
     function link(scope, element, attrs) {
-        var zindex = 99;
+        var dropdown = scope.dropdown;
+
         setTimeout(function () {
             var dropdownListWidth = $('.dropdown__list', element).width();
             $('.dropdown', element).css('width', dropdownListWidth + 1);
         }, 0);
 
         scope.$watch('dropdown.list', function () {
-            console.log();
-            scope.dropdown.selectOption(scope.dropdown.getSelected());
+            dropdown.selectOption(dropdown.getSelected());
         }, true);
 
         $('.dropdown__selected', element).focusin(function () {
@@ -57,8 +57,7 @@ function dropdown() {
             var dropdownList = $('.dropdown');
 
             if (!dropdownList.is(e.target)
-                && dropdownList.has(e.target).length === 0)
-            {
+                && dropdownList.has(e.target).length === 0) {
                 $('.dropdown__list').removeClass('display');
             }
         });
@@ -68,43 +67,35 @@ function dropdown() {
     function DropdownController() {
         var dropdown = this;
 
-        /**
-         *
-         * @param option
-         * @returns {boolean}
-         */
         dropdown.selectOption = function selectOption(option) {
-            if(option.value == null ) {
+            dropdown.unselect();
+
+            if (option.value == null) {
                 dropdown.empty = true;
                 dropdown.value = null;
-                dropdown.unSelect();
-                return false;
+            } else {
+                dropdown.empty = false;
+                dropdown.value = option.value;
+                option.selected = true;
             }
-
-            dropdown.unSelect();
-
-            dropdown.value =  option.value;
-            dropdown.empty = false;
-            option.selected = true;
         };
 
-
-        dropdown.unSelect = function unSelect() {
-            dropdown.list.forEach(function (item, index, array) {
-                item.selected = false;
+        dropdown.unselect = function unselect() {
+            dropdown.list.forEach(function (option) {
+                option.selected = false;
             });
         };
 
         dropdown.getSelected = function () {
-            var value = {
+            var selectedOption = {
                 value: null
             };
-            dropdown.list.forEach(function (item, index, array) {
-                if(item.selected === true) {
-                    value = item;
+            dropdown.list.forEach(function (option) {
+                if (option.selected === true) {
+                    selectedOption = option;
                 }
             });
-            return value;
+            return selectedOption;
         }
     }
 }
