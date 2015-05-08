@@ -25,6 +25,9 @@ c-dropdown {
       background-color: rgb(245, 142, 142);
       border-color: rgb(245, 142, 142);
       color: white;
+      &:hover, &:focus, &:active {
+        border-color: rgb(219, 127, 127);
+      }
       &:after {
         background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAGCAYAAAAVMmT4AAAAjUlEQVQYV2P8////SgYGhmmMjIwHgTRWAFRjD5TIYgQyTIGM9UCcCNSwG101UN4VKDYfiAMZQZJAAUMgtQmIM4AatsI0AMW9gOyZQOwHFD8PVgzVoAOktwFxAVBiHVBhIJA9EYi9gPwrIDVwxVAN6kB6JxBvBpkGxO5AhTdgBqIohmpQgroR5Id7yH4AAJI1MN/YwyK7AAAAAElFTkSuQmCC');
       }
@@ -94,6 +97,9 @@ c-dropdown {
       line-height: 30px;
       height: 30px;
       white-space: nowrap;
+      &.hover {
+        background-color: rgba(255, 255, 0, 0.15);
+      }
 
       &.selected {
         &:after {

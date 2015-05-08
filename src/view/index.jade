@@ -8,13 +8,13 @@ block content
 		h1 {{vm.appName}}
 
 		h2 Cities list
-		c-dropdown(data-list="vm.cities", data-value="vm.selectedCity")
+		c-dropdown(data-list="vm.cities", data-value="vm.selectedCity", data-type="wrong")
 
 		pre Cities: {{ vm.cities | json:4 }}
 		pre selected: {{ vm.selectedCity | json:4 }}
 
 		h2 Number list
-		c-dropdown(data-list="vm.number", data-value="vm.selectedNumber")
+		c-dropdown(data-list="vm.number", data-value="vm.selectedNumber", data-type="right")
 		c-dropdown(data-list="vm.number", data-value="vm.selectedNumber")
 
 		pre Cookies: {{ vm.number | json:4 }}
