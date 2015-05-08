@@ -61,7 +61,6 @@ function dropdown() {
                 //UP
                 case 38:
                     e.preventDefault();
-                    console.log('up');
                     if (isOpen) {
                         prev(keybordSelectedElement);
                     }
@@ -70,8 +69,6 @@ function dropdown() {
                 //DOWN
                 case 40:
                     e.preventDefault();
-                    console.log('down');
-
                     if (isOpen) {
                         next(keybordSelectedElement);
                     } else {
@@ -83,7 +80,6 @@ function dropdown() {
                 //ENTER
                 case 13:
                     e.preventDefault();
-                    console.log('enter');
                     if (isOpen) {
                         select(keybordSelectedElement);
                     } else {
@@ -95,8 +91,6 @@ function dropdown() {
                 //SPACE
                 case 32:
                     e.preventDefault();
-                    console.log('space');
-
                     if (!isOpen) {
                         open(element);
                     }
@@ -106,8 +100,6 @@ function dropdown() {
                 //ESCAPE
                 case 27:
                     e.preventDefault();
-                    console.log('ecs');
-
                     if (isOpen) {
                         esc(isOpen);
                     }
