@@ -31,20 +31,15 @@ menu {
     z-index: 99;
 
     //animate
+    transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, -200, 0, 0, 1);
+
     transform-origin: center center 0px;
-    transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
-    -webkit-transform-origin: center center 0px;
-    -webkit-transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
-    -moz-transform-origin: center center 0px;
-    -moz-transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
-    -o-transform-origin: center center 0px;
-    -o-transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
-    -ms-transform-origin: center center 0px;
-    -ms-transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
-    transform: translate(-100%);
+    transition: all 0.3s ease-out 0s;
+    //transition: all 0.2s ease-in 0s;
+    opacity: 0.999999;
 
     &-visible {
-      transform: translate(0%);
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     }
   }
 }
