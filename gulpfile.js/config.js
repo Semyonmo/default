@@ -4,8 +4,10 @@
 //  \__ \  __/ |_| |_| | | | | (_| \__ \ |  _| (_) | |    | (_| | |_| | | |_) |
 //  |___/\___|\__|\__|_|_| |_|\__, |___/ |_|  \___/|_|     \__, |\__,_|_| .__/
 //                            |___/                        |___/        |_|
-var dest = "./app";
+var dest = './app';
 var src = './src';
+
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     browserSync: {
@@ -22,7 +24,7 @@ module.exports = {
             scss: src + "/**/*.scss",
             less: src + "/**/*.less"
         },
-        dest: dest + "/stylesheet",
+        dest: dest + "/style",
         settings: {
             scss : {
                 includePaths: require('node-bourbon').includePaths
@@ -37,6 +39,14 @@ module.exports = {
         files: [src + "/view/**/*.jade", src + "/assets/data.json"],
         data: src + "/assets/data.json",
         dest: dest
+    },
+    angularTemplates: {
+        src: src + '/app/**/*.jade',
+        dest: src + '/app/templates'
+    },
+    angularComponentTemplates: {
+        src: src + '/components/**/*.jade',
+        dest: src + '/components/templates'
     },
     images: {
         src: src + "/assets/img/**",
@@ -59,10 +69,10 @@ module.exports = {
     webpack: {
         name: 'browser',
         target: 'web',
-        entry: src + "/app.js",
+        entry: src + "/app/app.js",
         output: {
-            path: dest,
-            filename: "[name].js"
+            path: './app',
+            filename: "/js/[name].js"
         },
         module: {
             loaders: [
@@ -74,11 +84,16 @@ module.exports = {
             ]
         },
         plugins: [
+            new ngAnnotatePlugin({
+                add: true
+                // other ng-annotate options here
+            })
 
         ],
         resolve: {
             modulesDirectories: [
                 'src',
+                'src/components',
                 'bower_components',
                 'node_modules'
             ]

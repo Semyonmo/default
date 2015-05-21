@@ -1,6 +1,6 @@
 node_modules
 .idea
-app
+/app
 .DS_Store
 npm-debug.log
-bower_components
+/bower_components

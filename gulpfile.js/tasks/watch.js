@@ -28,6 +28,14 @@ gulp.task('watch', ['setWatch', 'browserSync'], function () {
         {
             PATH: config.sprites.src,
             task: "sprites"
+        },
+        {
+            PATH: config.angularTemplates.src,
+            task: "angular-templates"
+        },
+        {
+            PATH: config.angularComponentTemplates.src,
+            task: "angular-components-templates"
         }
     ];
 

@@ -1,0 +1,48 @@
+$header-max-width: 600px;
+
+.framework {
+  &__header {
+    padding: 10px 10px 0px 70px;
+    margin: 0px -15px;
+    background-color: gray;
+    position: relative;
+    height: 73px;
+    @media screen and (max-width: $header-max-width) {
+      padding-left: 10px;
+    }
+    &-icon {
+      height: 52px;
+      width: 52px;
+      background-color: darkgray;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      @media screen and (max-width: $header-max-width) {
+        display: none;
+      }
+    }
+    &-title {
+      display: inline-block;
+      font-size: 30px;
+      margin: 0;
+      color: white;
+    }
+    &-subtitle {
+      display: inline-block;
+      font-size: 12px;
+      margin: 0;
+      color: white;
+    }
+    &-btn-menu {
+      position: absolute;
+      right: 10px;
+      top: 20px;
+      border: 0;
+      border-radius: 0 !important;
+      padding-top: 8px;
+      outline: 0 !important;
+    }
+  }
+}
+
+

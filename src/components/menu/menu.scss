@@ -1,0 +1,50 @@
+$menu-max-width: 600px;
+
+menu {
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  list-style: none;
+  padding-top: 20px;
+  user-select: none;
+  &__item {
+    padding-left: 10px;
+    line-height: 30px;
+    &:hover {
+      background-color: gray;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+    &-active {
+      background-color: dimgray;
+      color: white;
+    }
+  }
+  &__area {
+    background-color: darkgray;
+    min-height: calc(100vh - 73px);
+    position: absolute;
+    left: 0;
+    width: 200px;
+    z-index: 99;
+
+    //animate
+    transform-origin: center center 0px;
+    transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
+    -webkit-transform-origin: center center 0px;
+    -webkit-transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
+    -moz-transform-origin: center center 0px;
+    -moz-transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
+    -o-transform-origin: center center 0px;
+    -o-transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
+    -ms-transform-origin: center center 0px;
+    -ms-transition: all 0.2s cubic-bezier(0.550,0.085,0.680,0.530) 0s;
+    transform: translate(-100%);
+
+    &-visible {
+      transform: translate(0%);
+    }
+  }
+}

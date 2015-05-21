@@ -1,0 +1,16 @@
+.row
+	.col-xs-12
+		.framework__header
+			.framework__header-icon
+			h1.framework__header-title {{vm.title}}
+			br
+			p.framework__header-subtitle {{vm.subtitle}}
+				span
+				=' {{vm.routeString}}'
+
+			button(ng-click="vm.menuToggle()").btn.btn-default.framework__header-btn-menu &#9776;
+
+
+.row
+	.col-xs-12
+		div(ng-transclude)
