@@ -22,7 +22,8 @@ module.exports = {
     style: {
         src: {
             scss: src + "/**/*.scss",
-            less: src + "/**/*.less"
+            less: src + "/**/*.less",
+            stylus: src + "/**/*.stylus"
         },
         dest: dest + "/style",
         settings: {
@@ -30,6 +31,9 @@ module.exports = {
                 includePaths: require('node-bourbon').includePaths
             },
             less: {
+
+            },
+            stylus: {
 
             }
         }

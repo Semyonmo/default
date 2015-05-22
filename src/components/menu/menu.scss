@@ -31,15 +31,17 @@ menu {
     z-index: 99;
 
     //animate
-    transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, -200, 0, 0, 1);
-
-    transform-origin: center center 0px;
-    transition: all 0.3s ease-out 0s;
-    //transition: all 0.2s ease-in 0s;
+    transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,-200,0,0,1);
+    transform-origin: left center 0px;
+    transition: transform 0.6s ease;
     opacity: 0.999999;
 
     &-visible {
       transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     }
   }
+}
+
+* {
+  //-webkit-transform: rotateZ(360deg);
 }
