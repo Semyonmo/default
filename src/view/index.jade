@@ -2,7 +2,8 @@ extends template/layout
 
 
 block content
-	.page(ng-app="app")
-		shell.shell
-
-
+	header
+		legend topchek
+		form(form="form")
+			input(name="name", type="text")
+			input(type="submit", value="отправить")
